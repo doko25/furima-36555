@@ -12,10 +12,10 @@
 | birth year                    | date   | null: false |
 | birth month                   | date   | null: false |
 | birth day                     | date   | null: false |
-| goods                         | references | null: false, foreign_key: true |
+| items                         | references | null: false, foreign_key: true |
 | comments                      | references | null: false, foreign_key: true |
 
-## goods  テーブル
+## items  テーブル
 
 | Column           | Type       | Options     |
 | ----------       | ---------- | ----------- |
@@ -28,7 +28,7 @@
 | days_id          | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
-| goods             | references | null: false, foreign_key: true |
+| comments         | references | null: false, foreign_key: true |
 
 ## comments  テーブル
 
@@ -36,7 +36,7 @@
 | ----------------- | ---------- | ----------- |
 | text              | text       | null: false |
 | user              | references | null: false, foreign_key: true |
-| goods             | references | null: false, foreign_key: true |
+| items             | references | null: false, foreign_key: true |
 
 ## buy  テーブル
 | Column            | Type       | Options     |
