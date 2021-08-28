@@ -1,24 +1,36 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column               | Type   | Options     |
+| ------------------   | ------ | ----------- |
+| nickname             | string | null:false|
+| email                | string | null: false |
+| password             | string | null: false |
+| name  last           | string | null: false |
+| name first           | string | null: false |
+| name kana last       | string | null: false |
+| name kana first      | string | null: false |
+| birth year           | string | null: false |
+| birth month          | string | null: false |
+| birth day            | string | null: false |
 
-Things you may want to cover:
+## goods テーブル
 
-* Ruby version
+| Column         | Type       | Options     |
+| ----------     | ---------- | ----------- |
+| name           | string     | null: false |
+| detail         | text       | null: false |
+| category       | string     | null: false |
+| condition      | string     | null: false |
+| deliver price  | string     | null: false |
+| area           | string     | null: false |
+| days           | string     | null: false |
+| price          | string     | null: false |
+| user           | references | null: false, foreign_key: true |
 
-* System dependencies
+## comments テーブル
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Column             | Type       | Options     |
+| ------------------ | ---------- | ----------- |
+| text               | text       | null: false |
+| user               | references | null: false, foreign_key: true |
+| goods          | references | null: false, foreign_key: true |
