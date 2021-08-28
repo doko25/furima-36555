@@ -1,17 +1,17 @@
 ## users テーブル
 
-| Column               | Type   | Options     |
-| ------------------   | ------ | ----------- |
-| nickname             | string | null:false|
-| email                | string | null: false |
-| password             | string | null: false |
-| name  last           | string | null: false |
-| name first           | string | null: false |
-| name kana last       | string | null: false |
-| name kana first      | string | null: false |
-| birth year           | string | null: false |
-| birth month          | string | null: false |
-| birth day            | string | null: false |
+| Column              | Type   | Options     |
+| ------------------  | ------ | ----------- |
+| nickname            | string | null:false|
+| email               | string | null: false |
+| password            | string | null: false |
+| name  last          | string | null: false |
+| name first          | string | null: false |
+| name kana last      | string | null: false |
+| name kana first     | string | null: false |
+| birth year          | string | null: false |
+| birth month         | string | null: false |
+| birth day           | string | null: false |
 
 ## goods テーブル
 
