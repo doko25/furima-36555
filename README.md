@@ -3,7 +3,7 @@
 | Column                        | Type   | Options     |
 | ------------------            | ------ | ----------- |
 | nickname                      | string | null:false  |
-| email                         | string | null: false |
+| email                         | string | null: false, unique:trueオプション |
 | encrypted_password            | string | null: false |
 | name_last                     | string | null: false |
 | name_first                    | string | null: false |
@@ -28,20 +28,23 @@
 | days_id          | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
-| buy              | references | null: false, foreign_key: true |
-| adress           | references | null: false, foreign_key: true |
+
+-belongs_to :user
+-belongs_to :buy
 
 ## comment  テーブル
 
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | text              | text       | null: false |
-| user              | references | null: false, foreign_key: true |
-| items             | references | null: false, foreign_key: true |
+
 
 ## buy  テーブル
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
+
+-belongs_to :user
+-belongs_to :item
 
 ## addresses  テーブル
 | Column            | Type       | Options     |
@@ -50,6 +53,6 @@
 | area_id           | integer    | null: false |
 | town              | string     | null: false |
 | banchi            | string     | null: false |
-| building          | string     |             |
-| phone             | string     | null: false |
-| item              | references | null: false, foreign_key: true |
+| buy               | references | null: false, foreign_key: true |
+
+-belongs_to :buy
