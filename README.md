@@ -7,13 +7,13 @@
 | encrypted_password            | string | null: false |
 | name_last                     | string | null: false |
 | name_first                    | string | null: false |
-| name_kana last                | string | null: false |
-| name_kana first               | string | null: false |
-| birth year                    | date   | null: false |
-| birth month                   | date   | null: false |
-| birth day                     | date   | null: false |
-| items                         | references | null: false, foreign_key: true |
-| comments                      | references | null: false, foreign_key: true |
+| name_kana_last                | string | null: false |
+| name_kana_first               | string | null: false |
+| birth                         | date   | null: false |
+
+-has_many :items
+-has_many :comments
+-has_many :buys
 
 ## items  テーブル
 
@@ -28,9 +28,10 @@
 | days_id          | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
-| comments         | references | null: false, foreign_key: true |
 
-## comments  テーブル
+-has_many :comments
+
+## comment  テーブル
 
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
@@ -50,8 +51,8 @@
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | number            | integer    | null: false |
-| prefecture        | integer    | null: false |
-| town              | text       | null: false |
-| banchi            | integer    | null: false |
-| building          | text       | null: false |
-| phone             | integer    | null: false |
+| area_id           | integer    | null: false |
+| town              | string     | null: false |
+| banchi            | string     | null: false |
+| building          | string     |             |
+| phone             | string     | null: false |
