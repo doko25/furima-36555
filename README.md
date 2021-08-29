@@ -28,8 +28,8 @@
 | days_id          | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
-
--has_many :comments
+| buy              | references | null: false, foreign_key: true |
+| adress           | references | null: false, foreign_key: true |
 
 ## comment  テーブル
 
@@ -40,19 +40,16 @@
 | items             | references | null: false, foreign_key: true |
 
 ## buy  テーブル
-| Column            | Type       | Options     |
-| ----------------- | ---------- | ----------- |
-| card              | integer    | null: false |
-| card_year         | integer    | null: false |
-| card_month        | integer    | null: false |
-| security          | integer    | null: false |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
-## address  テーブル
+## addresses  テーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
-| number            | integer    | null: false |
+| number            | string     | null: false |
 | area_id           | integer    | null: false |
 | town              | string     | null: false |
 | banchi            | string     | null: false |
 | building          | string     |             |
 | phone             | string     | null: false |
+| item              | references | null: false, foreign_key: true |
