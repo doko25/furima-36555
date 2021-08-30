@@ -44,8 +44,8 @@
 | item             | references | null: false, foreign_key: true |
 
 -belongs_to :user
--has_one :item
--belongs_to :address
+-belongs_to :item
+-has_one :address
 
 ## addresses  テーブル
 | Column            | Type       | Options     |
