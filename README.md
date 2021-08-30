@@ -30,21 +30,22 @@
 | user             | references | null: false, foreign_key: true |
 
 -belongs_to :user
--belongs_to :buy
+-has_one :buy
 
-## comment  テーブル
+## comments  テーブル
 
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | text              | text       | null: false |
 
 
-## buy  テーブル
+## buys  テーブル
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
 
 -belongs_to :user
--belongs_to :item
+-has_one :item
+-belongs_to :address
 
 ## addresses  テーブル
 | Column            | Type       | Options     |
@@ -53,6 +54,8 @@
 | area_id           | integer    | null: false |
 | town              | string     | null: false |
 | banchi            | string     | null: false |
+| building          | string     |             |
+| phone             | string     | null: false |
 | buy               | references | null: false, foreign_key: true |
 
 -belongs_to :buy
