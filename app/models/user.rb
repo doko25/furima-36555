@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :email, presence: true
-  validates :encrypted_password, presence: true
+  validates :encrypted_password, presence: true, length: { minimum: 6 }
   validates :nickname, presence: true
   validates :name_last, presence: true
   validates :name_first, presence: true
