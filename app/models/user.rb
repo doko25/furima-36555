@@ -5,13 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   with_options presence: true do
-    validates :email, presence: true
-    validates :encrypted_password, presence: true, length: { minimum: 6 },format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/}
-    validates :nickname, presence: true
-    validates :name_last, presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
-    validates :name_first, presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
-    validates :name_kana_last, presence: true, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
-    validates :name_kana_first, presence: true, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
-    validates :birth, presence: true
+    validates :email
+    validates :password, format:{with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i}
+    validates :nickname
+    validates :name_last, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
+    validates :name_first, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
+    validates :name_kana_last, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
+    validates :name_kana_first, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
+    validates :birth
   end
 end
