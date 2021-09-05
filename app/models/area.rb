@@ -50,7 +50,6 @@ class Area < ActiveHash::Base
     {id: 48, name: '沖縄県'}
   ]
 
-  validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
 
   include ActiveHash::Associations
   has_many :items

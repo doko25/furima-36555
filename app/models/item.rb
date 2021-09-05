@@ -9,8 +9,19 @@ class Item < ApplicationRecord
     validates :deliver_price_id
     validates :area_id
     validates :days_id
-    validates :price
+      validates :price, numericality: { less_than_or_equal_to: 9999999, greater_than_or_equal_to: 300 }
   end
+  
+  with_options  numericality: { other_than: 1 , message: "can't be blank"} do
+    validates :category_id
+    validates :condition_id
+    validates :days_id
+    validates :deliver_price_id
+    validates :area_id
+  end
+
+
+
 
   belongs_to :user
 

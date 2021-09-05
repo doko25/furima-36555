@@ -13,9 +13,6 @@ class Category < ActiveHash::Base
     { id: 11, name: 'その他' }
   ]
 
-  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-
-
   include ActiveHash::Associations
   has_many :items
 

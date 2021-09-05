@@ -6,7 +6,6 @@ class Days < ActiveHash::Base
     { id: 4, name: '4~7日で発送' },
   ]
 
-  validates :days_id, numericality: { other_than: 1 , message: "can't be blank"}
  
    include ActiveHash::Associations
    has_many :items
