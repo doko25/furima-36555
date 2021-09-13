@@ -1,9 +1,13 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_item, except: :create
 
   def index
     @buy_address = BuyAddress.new
     @item=Item.find(params[:item_id])
+    if current_user == @item.user
+      redirect_to root_path
+    end
   end
 
   def create
@@ -31,6 +35,13 @@ class BuysController < ApplicationController
       card: buy_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_item
+    @buy = Buy.find(params[:item_id])
+    if @buy.valid?
+      redirect_to root_path
+    end
   end
 
 end
