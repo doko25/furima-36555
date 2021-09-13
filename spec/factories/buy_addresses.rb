@@ -6,5 +6,6 @@ FactoryBot.define do
     banchi      { '青山1-1-1' }
     building    {}
     phone       { '09012345678' }
+    token       {"tok_abcdefghijk00000000000000000"}
   end
 end
