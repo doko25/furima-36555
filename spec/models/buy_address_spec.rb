@@ -15,6 +15,7 @@ RSpec.describe BuyAddress, type: :model do
       end
 
       it 'buildingが空でも購入できる' do
+        @address.building = ''
         expect(@address).to be_valid
       end
     
@@ -85,6 +86,18 @@ RSpec.describe BuyAddress, type: :model do
         @address.phone = '090-1111-1111'
         @address.valid?
         expect(@address.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it 'user_idがなければ登録できない' do
+        @address.user_id = nil
+        @address.valid?
+        expect(@address.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idがなければ登録できない' do
+        @address.item_id = nil
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Item can't be blank")
       end
 
     end

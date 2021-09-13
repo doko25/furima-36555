@@ -59,11 +59,8 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @buy = Buy.find(params[:item_id])
-    unless user_signed_in? && current_user.id == @item.user_id
-      if @buy.valid?
-        redirect_to root_path
-      end
+    if @item.buy.present?
+      redirect_to root_path
     end
   end
 
