@@ -17,7 +17,14 @@ RSpec.describe BuyAddress, type: :model do
       it 'buildingが空でも購入できる' do
         expect(@address).to be_valid
       end
+    
+
+      it 'user_idとitem_idがあれば購入できる' do
+        expect(@address).to be_valid
+      end
+
     end
+
 
     context '購入できない時' do
       it '郵便番号が存在しない' do
@@ -56,17 +63,30 @@ RSpec.describe BuyAddress, type: :model do
         expect(@address.errors.full_messages).to include("Phone can't be blank")
       end
 
-      it '電話番号が10桁以上11桁以内で半角数値ではない' do
+      it 'tokenが空では登録できないこと' do
+        @address.token = nil
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it '電話番号は9桁以下では登録できない' do
+        @address.phone = '090111111'
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it '電話番号は12桁以上では登録できない' do
+        @address.phone = '09011111111111'
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it '電話番号は半角英字以外が含まれていると登録できない' do
         @address.phone = '090-1111-1111'
         @address.valid?
         expect(@address.errors.full_messages).to include("Phone is invalid")
       end
 
-      it "tokenが空では登録できないこと" do
-        @address.token = nil
-        @address.valid?
-        expect(@address.errors.full_messages).to include("Token can't be blank")
-      end
     end
   end
 end
