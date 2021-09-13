@@ -1,6 +1,6 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :set_item, except: :create
+  # before_action :set_item, except: :create,
 
   def index
     @buy_address = BuyAddress.new
@@ -37,11 +37,12 @@ class BuysController < ApplicationController
     )
   end
 
-  def set_item
-    @buy = Buy.find(params[:item_id])
-    if @buy.valid?
-      redirect_to root_path
-    end
-  end
+  # def set_item
+  #   @buy = Buy.find(params[:item_id])
+  #   unless @buy.valid?
+  #     redirect_to root_path
+  #   end
+  # end
+
 
 end
