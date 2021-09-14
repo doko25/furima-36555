@@ -38,8 +38,8 @@ class BuysController < ApplicationController
   end
 
   def set_item
-    @buy = Buy.find(params[:item_id])
-    if @buy.valid?
+    @item=Item.find(params[:item_id])
+    if @item.buy.present?
       redirect_to root_path
     end
   end
