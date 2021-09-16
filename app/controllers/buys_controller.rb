@@ -1,5 +1,5 @@
 class BuysController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   before_action :set_item, except: :create
 
   def index
